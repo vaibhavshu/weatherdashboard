@@ -38,7 +38,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    docker.image('weather:latest').run('-d --name weather -p 8181:8080'            
+                    docker.image('weather:latest').run('-d --name weather -p 8181:8080')            
                     sleep 45
                     sh 'wget http://localhost:8181'
                 }
