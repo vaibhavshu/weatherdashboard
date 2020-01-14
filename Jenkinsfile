@@ -25,8 +25,7 @@ pipeline {
                 script {
                     unstash 'Docker'
                     unstash 'Source'
-                    sh 'cp Dockerfile .'
-                    
+           
                     docker.build('weather:latest')
                     print 'App Image is built'
                    
