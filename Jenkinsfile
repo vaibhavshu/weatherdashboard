@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 unstash 'Source'
-                synopsys_detect detectProperties: '--detect.source.path=.', returnStatus: true
+                synopsys_detect detectProperties: '--detect.source.path=. , --detect.project.name=weatherdashboard', returnStatus: true
             }
         }  // stage Build
     } //stages
