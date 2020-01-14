@@ -7,21 +7,14 @@ pipeline {
             steps {
                 git(url: 'https://github.com/jscaro/weatherdashboard.git', branch: 'master')
                 stash name:'Source', includes:'**/**'
+                stash name:'Docker', includes:'**/Dockerfile'
             }
         } //Checkout
 
         stage('Build') {
-            agent {
-                docker {
-                    image 'python:3.7-slim-buster'
-                    args ' -v $HOME/.m2:/root/.m2'
-                }
-            } //agent
-
             steps {
                 unstash 'Source'
-                sh 'pip3 install Flask Flask-wtf waitress'
-                sh 'echo here'
+                synopsys_detect detectProperties: '--detect.source.path=.', returnStatus: true
             }
         }  // stage Build
     } //stages
