@@ -1,9 +1,6 @@
-#!groovy
-
 pipeline {
 
     agent any
-
     stages {
 
         stage('Checkout'){
@@ -14,9 +11,7 @@ pipeline {
         } //Checkout
 
         stage('Build') {
-
             agent {
-
                 docker {
                     image 'python:3.7-slim-buster'
                     args ' -v $HOME/.m2:/root/.m2'
@@ -24,12 +19,10 @@ pipeline {
             } //agent
 
             steps {
-
                 unstash 'Source'
                 sh 'pip3 install Flask Flask-wtf waitress'
                 sh 'echo here'
             }
-
         }  // stage Build
-  } //stages
-  } pipeline
+    } //stages
+  } //pipeline
