@@ -4,7 +4,7 @@ security:
     type: "Inline"
     toolchain: "OpenSource"
   sastScan:
-    enabled: false
+    enabled: true
     rescanThreshold: 10
   scaScan:
     enabled: false
