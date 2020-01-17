@@ -10,7 +10,7 @@ security:
     enabled: false
     rescanThreshold: 0
   dastScan:
-    enabled: false
+    enabled: true
     rescanThreshold: 10
   sastPlusM: true
   dastPlusM: false
